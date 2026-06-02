@@ -31,11 +31,29 @@ UPLOAD_FOLDER = "uploads"
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 MODEL_NAME = "llama3"
+# MODEL_NAME = "qwen2.5:3b"
+# MODEL_NAME = "mistral:7b"
 
 client = OpenAI(
     base_url="http://localhost:11434/v1",
     api_key="ollama"
 )
+# MODEL_NAME="gemini-2.5-flash-lite"
+# GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+# # GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# client = OpenAI(
+#     base_url=GEMINI_BASE_URL,
+#     api_key=GEMINI_API_KEY,
+# )
+
+
+# client = OpenAI(
+#     api_key=OR_API_KEY,
+#     base_url="https://openrouter.ai/api/v1"
+# )
+
+# MODEL_NAME = "qwen/qwen-2.5-7b-instruct"
 
 # =========================
 # GLOBAL SESSION STORAGE
@@ -127,6 +145,7 @@ def upload():
     # STEP 6: VOCAB
     # =========================
     vocab = extract_legal_vocab(clean_text, client, MODEL_NAME)
+    # vocab = extract_legal_vocab(clean_text)
 
     # =========================
     # STEP 7: RAG INGEST

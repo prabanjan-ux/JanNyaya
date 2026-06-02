@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { useAppStore } from '../../store/useAppStore'
 import { translateText } from '../../api'
 import { SUPPORTED_LANGUAGES } from '../../utils'
+import SpeechButton from '../common/SpeechButton'
 import styles from './SummaryView.module.css'
 
 export default function SummaryView() {
@@ -27,7 +28,7 @@ export default function SummaryView() {
         try {
             const result = await translateText(finalOutput, lang)
             setTranslatedOutput(result)
-        } catch (e) {
+        } catch {
             // fallback: show original
         } finally {
             setLoading(false)
@@ -58,6 +59,11 @@ export default function SummaryView() {
                     )}
                 </div>
                 <div className={styles.toolbarRight}>
+                    <SpeechButton
+                        text={content}
+                        language={translatedOutput ? translateTarget : 'English'}
+                    />
+
                     {/* Language selector */}
                     <div className={styles.translateWrap}>
                         <GlobeIcon />

@@ -3,7 +3,7 @@ import axios from 'axios'
 const client = axios.create({
     baseURL: 'http://localhost:5000',
     // baseURL: 'http://10.221.228.94:5000',
-    timeout: 120000
+    timeout: 600000
 })
 
 export const uploadDocument = async (file, onStageChange) => {

@@ -2,6 +2,16 @@ import json
 import re
 from openai import OpenAI
 
+# MODEL="gemini-2.5-flash-lite"
+# GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+# # GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+# GEMINI_API_KEY="AIzaSyAMdgDLTVaa8zVXLm6e3Iwe5_1o0xR3SuA"
+
+# client = OpenAI(
+#     base_url=GEMINI_BASE_URL,
+#     api_key=GEMINI_API_KEY,
+# )
+
 # =========================
 # SYSTEM PROMPT
 # =========================
@@ -57,6 +67,7 @@ Text:
 # MAIN FUNCTION
 # =========================
 def extract_legal_vocab(text, client: OpenAI, MODEL, retries=3):
+# def extract_legal_vocab(text, retries=3):
 
     for attempt in range(retries):
         try:

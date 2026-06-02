@@ -1,6 +1,6 @@
 from openai import OpenAI
 
-MODEL_NAME = "mistral:7b"   # or qwen2.5:7b
+MODEL_NAME = "llama3"   # or qwen2.5:7b
 
 client = OpenAI(
     base_url="http://localhost:11434/v1",
